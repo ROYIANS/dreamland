@@ -1,0 +1,31 @@
+/*
+  * 胶带
+*/
+
+.royTapeSection {
+    position: absolute;
+    width: 100%;
+}
+
+.royTapeSection::before,
+.royTapeSection::after {
+    content: "";
+    width: 80px;
+    height: 32px;
+    position: absolute;
+    background-color: #efedd7;
+    opacity: 0.5;
+    border-right: 1px dotted #b7b49d;
+    border-left: 1px dotted #b7b49d;
+}
+
+.royTapeSection::before {
+    transform: rotate(-45deg);
+    left: -32px;
+}
+
+.royTapeSection::after {
+    transform: rotate(45deg);
+    right: -32px;
+    top: 0;
+}

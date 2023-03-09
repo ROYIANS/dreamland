@@ -1,0 +1,27 @@
+@import "font/stylesheet.css";
+@import "remixicon/fonts/remixicon.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+}
+
+html, body {
+    @apply h-full font-sans
+}
+
+::selection {
+    background-color: #444444;
+    color: #ffffff;
+}
+
+::-webkit-scrollbar-track {
+    opacity: 0;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}

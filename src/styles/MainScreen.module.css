@@ -1,0 +1,142 @@
+.dreamlandTop {
+    @apply sticky top-0 inset-x-0;
+    backdrop-filter: saturate(200%) blur(20px);
+}
+
+.statusBar {
+    @apply w-full p-3 h-5 flex justify-between text-xs items-center leading-none;
+}
+
+.statusBarRight {
+    @apply flex justify-end align-baseline content-baseline items-center leading-none;
+}
+
+.statusBarRight i {
+    @apply text-base m-0.5;
+}
+
+.battery {
+    --battery-level-low: 20;
+    --battery-level: 100;
+    --battery-charging: 0;
+    position: relative;
+    width: 1.5rem;
+    height: 0.7rem;
+    border-radius: 0.1rem;
+    border: 0.1rem solid #444444;
+    transition: 300ms;
+
+    counter-reset:
+            battery-level var(--battery-level)
+            battery-charging var(--battery-charging);
+
+    background-image: linear-gradient(to right,
+    rgba(0, 255, 0, calc(var(--battery-charging))) calc(var(--battery-level) * 1%),
+    rgba(0, 0, 0, 0) calc(var(--battery-level) * 1%)
+    ),
+    linear-gradient(to right,
+            rgb(69, 69, 69) calc(var(--battery-level) * 1%),
+            rgba(0, 0, 0, 0) calc(var(--battery-level) * 1%)
+    );
+    background-repeat: no-repeat;
+}
+
+.battery::after {
+    content: '';
+    display: block;
+    width: 0.2rem;
+    height: 0.4rem;
+    position: absolute;
+    right: -0.2rem;
+    top: 0.1rem;
+    bottom: 0.15rem;
+    background: #444444;
+    border-radius: 0 0.05rem 0.05rem 0;
+}
+
+.battery::before {
+    font-family: sans-serif;
+    font-size: 0.5rem;
+    width: 100%;
+    zoom: 0.8;
+    text-align: center;
+    overflow: hidden;
+    content: counter(battery-level);
+    position: absolute;
+    text-shadow: 0 1px #444444, 1px 0 #444444, -1px 0 #444444, 0 -1px #444444;
+    color: #FFFFFF;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.navBar {
+    @apply w-full h-12 border-y border-split-line-color border-solid flex justify-between;
+}
+
+.appIconGroup {
+    @apply w-2/5 h-full inline-grid grid-cols-3;
+    @apply md:w-3/5 md:grid-cols-8;
+    @apply lg:grid-cols-10
+}
+
+.appIconGroup .appIcon {
+    @apply h-full grid items-center text-center text-xs select-none cursor-pointer;
+    @apply hover:bg-menu-hover hover:text-white;
+}
+
+.appIcon i {
+    @apply text-xl;
+}
+
+.rightGroup {
+    @apply w-3/5 inline-flex justify-around;
+    @apply md:w-2/5;
+}
+
+.searchBar {
+    @apply inline-flex justify-around items-center border-l border-split-line-color border-solid;
+    width: calc(100% - 2rem);
+}
+
+.searchBar i {
+    @apply text-xl w-8 text-center;
+}
+
+.searchBar input {
+    @apply bg-transparent border-none h-full text-sm p-1;
+    width: calc(100% - 2rem);
+}
+
+.moreBtn {
+    @apply flex w-8 justify-center text-xl items-center border-l border-split-line-color border-solid cursor-pointer;
+    @apply hover:bg-menu-hover hover:text-white;
+}
+
+.footer {
+    @apply fixed bottom-0 inset-x-0 w-full px-3 grid grid-cols-6 grid-rows-2 text-xs items-center text-center;
+    @apply border-t border-split-line-color border-solid break-all;
+    @apply lg:grid-rows-1 lg:sticky lg:bottom-0 lg:left-0;
+    backdrop-filter: saturate(200%) blur(20px);
+}
+
+.blogMain {
+    @apply w-full p-3.5 text-base;
+}
+
+.blogCalenderBread {
+    @apply text-xl w-full flex;
+}
+
+.blogContent {
+    @apply py-5 font-serif text-lg;
+    @apply lg:text-base
+}
+
+.blogCalenderBread > span {
+    @apply mr-1.5;
+}
+
+.blogCalenderBread i {
+    @apply px-1.5;
+}
